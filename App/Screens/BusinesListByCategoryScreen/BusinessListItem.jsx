@@ -19,11 +19,11 @@ export default function BusinessListItem({business,booking}) {
       <View style={styles.subContaner}>
             <Text style={{fontFamily:'outfit',
             color:Colors.GRAY,fontSize:15}}>
-              {business.contactPerson}</Text>
-            <Text style={{fontFamily:'outfit-bold',fontSize:19}}>{business.name}</Text>
+              {business?.contactPerson}</Text>
+            <Text style={{fontFamily:'outfit-bold',fontSize:19}}>{business?.name}</Text>
            
            {!booking?.id? <Text style={{fontFamily:'outfit',color:Colors.GRAY,fontSize:16}}>
-            <Ionicons name="ios-location-sharp" size={20} 
+           <Ionicons name="ios-location-sharp" size={20} 
             color={Colors.PRIMARY}  />
             {business.address}</Text>
             :
@@ -44,7 +44,7 @@ export default function BusinessListItem({business,booking}) {
             color:Colors.GRAY,fontSize:16}}>
           <AntDesign name="calendar" size={24} 
           color={Colors.PRIMARY} style={{marginRight:15}}/>
-            {booking.date} at {booking.time}</Text>
+            {booking.date} a las {booking.time}</Text>
             :null}
       </View>
     </TouchableOpacity>
