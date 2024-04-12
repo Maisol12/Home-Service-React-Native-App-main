@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Modal, Linking, Image, Alert } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import Colors from "../../Utils/Colors";
-import BusinessPhotos from "./BusinessPhotos";
-import BusinessAboutMe from "./BusinessAboutMe";
-import RatingCourses from "../../Components/RatingCourses";
+import React, { useEffect, useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Modal, Linking, Image, Alert } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import Colors from '../../Utils/Colors';
+import BusinessPhotos from './BusinessPhotos';
+import BusinessAboutMe from './BusinessAboutMe';
+import RatingCourses from '../../Components/RatingCourses';
 
 export default function BusinessDetailsBooked() {
   const route = useRoute();
@@ -16,7 +16,7 @@ export default function BusinessDetailsBooked() {
   const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
-    console.log('booking', booking)
+    console.log('booking', booking);
     if (booking && booking.bookingStatus) {
       console.log("Business booking status:", booking.bookingStatus);
       setIsCompleted(booking.bookingStatus === "Completed");
@@ -27,14 +27,7 @@ export default function BusinessDetailsBooked() {
     Linking.openURL(`mailto:${business?.email}?subject=Hola, estoy buscando ayuda acerca del curso,`);
   }
 
-  const descargarCertificado = () => {
-    if (isCompleted) {
-      // Lógica para enviar el certificado
-      Alert.alert("Certificado enviado", "Revise su correo electronico.");
-    } else {
-      Alert.alert("Curso no completado", "No puedes enviar el certificado porque el curso aún no ha sido completado.");
-    }
-  }
+
 
   return (
     business && (
@@ -97,10 +90,7 @@ export default function BusinessDetailsBooked() {
               }}
             ></View>
 
-            {/* About Me Section  */}
             <BusinessAboutMe business={business} />
-
-            {/* Horizontal Line  */}
             <View
               style={{
                 borderWidth: 0.4,
@@ -111,8 +101,6 @@ export default function BusinessDetailsBooked() {
             ></View>
 
             <BusinessPhotos business={business} />
-
-            {/* Horizontal Line  */}
             <View
               style={{
                 borderWidth: 0.4,
@@ -124,7 +112,7 @@ export default function BusinessDetailsBooked() {
 
             {isCompleted && (
               <View>
-                <Text style={{ fontSize: 20, fontFamily: "outfit-medium" }}>
+                <Text style={{ fontSize: 20, fontFamily: "outfit-medium", paddingBottom: 15 }}>
                   Calificar curso
                 </Text>
                 <RatingCourses business={business} />
@@ -140,7 +128,7 @@ export default function BusinessDetailsBooked() {
         }}>
           <TouchableOpacity
             style={styles.messagebtn}
-            onPress={() => onMessageBtnClick()}
+            onPress={onMessageBtnClick}
           >
             <Text
               style={{
@@ -151,23 +139,6 @@ export default function BusinessDetailsBooked() {
               }}
             >
               Mensaje
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.bookingBtn, !isCompleted && { backgroundColor: Colors.GRAY, borderColor: Colors.GRAY }]}
-            onPress={descargarCertificado}
-            disabled={!isCompleted}
-          >
-            <Text
-              style={{
-                textAlign: "center",
-                fontFamily: "outfit-medium",
-                color: Colors.WHITE,
-                fontSize: 18,
-              }}
-            >
-              Enviar certificado
             </Text>
           </TouchableOpacity>
         </View>
