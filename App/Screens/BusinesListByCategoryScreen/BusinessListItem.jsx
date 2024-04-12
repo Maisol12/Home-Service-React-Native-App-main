@@ -8,9 +8,10 @@ export default function BusinessListItem({business,booking}) {
   const navigation=useNavigation();
   return (
     <TouchableOpacity style={styles.container} 
-    onPress={()=>navigation.push('business-detail',
+    onPress={()=>navigation.push('business-detail-booked',
     {
-      business:business
+      business:business,
+      booking:booking
     })
     }>
       <Image source={{uri:business?.images[0]?.url}}
