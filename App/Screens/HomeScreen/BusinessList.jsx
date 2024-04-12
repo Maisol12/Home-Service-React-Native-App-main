@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Heading from '../../Components/Heading'
 import GlobalApi from '../../Utils/GlobalApi'
 import BusinessListItemSmall from './BusinessListItemSmall';
+import Rating from '../../Components/Rating';
 
 
 export default function BusinessList() {
@@ -23,7 +24,7 @@ export default function BusinessList() {
     }
   return (
     <View style={{marginTop:20}}>
-      <Heading text={'Ultimos Cursos'} isViewAll={true} />
+      <Heading text={'Últimos Cursos'} isViewAll={true} />
 
       <FlatList
       data={businessList}
@@ -34,6 +35,7 @@ export default function BusinessList() {
            <BusinessListItemSmall business={item} />
         </View>
       )}
+      Rating
       />
     </View>
   )

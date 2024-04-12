@@ -5,19 +5,23 @@ import { useUser } from '@clerk/clerk-expo';
 import Colors from './../../Utils/Colors'
 import { FlatList } from 'react-native';
 import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 export default function ProfileScreen() {
  
   const {user}=useUser();
+  const navigation = useNavigation();
  const profileMenu=[
   {
     id:1,
     name:'Menu',
-    icon:'home'
+    icon:'home',
+    screen: 'home'
   },
   {
     id:2,
     name:'Mis cursos',
-    icon:'bookmark-sharp'
+    icon:'bookmark-sharp',
+    screen: 'booking'
   },
   {
     id:3,
@@ -58,7 +62,9 @@ export default function ProfileScreen() {
         <TouchableOpacity style={{display:'flex',flexDirection:'row',
         alignItems:'center',gap:10,marginBottom:40,
         paddingHorizontal:80,
-        }}>
+        }}
+        onPress={() => navigation.navigate(item.screen)}
+        >
           <Ionicons name={item.icon} size={35} color={Colors.BLUE_UTEZ} />
           <Text style={{fontFamily:'outfit',
         fontSize:20,}}>{item.name}</Text>

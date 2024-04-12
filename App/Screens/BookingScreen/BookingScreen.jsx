@@ -43,7 +43,7 @@ export default function BookingScreen() {
       )}
       />:
       <Text style={{fontFamily:'outfit-medium',
-      fontSize:25,textAlign:'center',marginTop:100}}>No te has inscrito a ningun curso aún D:</Text>}
+      fontSize:25,textAlign:'center',marginTop:100}}>No te has inscrito a ningún curso aún D:</Text>}
     </View>
     </View>
   )

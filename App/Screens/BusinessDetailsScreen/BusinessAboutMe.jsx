@@ -16,7 +16,7 @@ export default function BusinessAboutMe({business}) {
               <TouchableOpacity onPress={()=>setIsReadMore(!isReadMore)}>
               <Text style={{color:Colors.PRIMARY,
                 fontSize:16,fontFamily:'outfit'}}>
-                  {isReadMore?'Read Less':'Read More'}</Text>
+                  {isReadMore?'Leer menos':'Leer más'}</Text>
               </TouchableOpacity>
             </View>
   )
