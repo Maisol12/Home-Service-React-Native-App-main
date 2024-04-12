@@ -27,7 +27,7 @@ export default function Login() {
       //agrega el iniciar sesion con la cuenta normal, no con google  :D
   return (
     <View style={{alignItems:'center'}}>
-        <Image source={require('./../../../assets/images/login.png')} 
+        <Image source={require('./../../../assets/images/utez.jpeg')} 
             style={styles.loginImage}
         />
         <View style={styles.subContainer}>
@@ -66,8 +66,8 @@ export default function Login() {
 
 const styles = StyleSheet.create({
     loginImage:{
-        width:530,
-        height:450,
+        width:'100%',
+        height:'40%',
         marginTop:70,
 
     },
