@@ -21,7 +21,7 @@ export default function BusinessDetailsScreen() {
   //'mailto:someone@example.com?subject=Hello&body=Hello%20there!'
   
   const onMessageBtnClick=()=>{
-    Linking.openURL('mailto:'+business?.email+"?subject=I am looking for your Service&body=Hi There,");
+    Linking.openURL('mailto:'+business?.email+"?subject=Hola, estoy buscando ayuda acerca del curso,");
   }
   
   return business&&(

@@ -22,6 +22,8 @@ export default function Login() {
           console.error("OAuth error", err);
         }
       }, []);
+
+      //agrega el iniciar sesion con la cuenta normal, no con google  :D
   return (
     <View style={{alignItems:'center'}}>
         <Image source={require('./../../../assets/images/login.png')} 
@@ -42,6 +44,13 @@ export default function Login() {
                 <Text style={{textAlign:'center',
                 fontSize:17,
                 color:Colors.PRIMARY}}>Iniciar Sesión</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.button} 
+            onPress={onPress}>
+                <Text style={{textAlign:'center',
+                fontSize:17,
+                color:Colors.PRIMARY}}>Iniciar Sesión con Google</Text>
             </TouchableOpacity>
         </View>
     </View>

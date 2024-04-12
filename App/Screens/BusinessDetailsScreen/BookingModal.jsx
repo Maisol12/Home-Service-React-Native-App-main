@@ -46,28 +46,35 @@ export default function BookingModal({businessId,hideModal}) {
     }
 
     // Create Booking Method 
-    const createNewBooking=()=>{
-        if(!selectedTime||!selectedDate)
-        {
+    const createNewBooking = () => {
+        if (!selectedTime || !selectedDate) {
             Alert.alert('Por favor seleccione la fecha y la hora para reservar el curso');
-
-            return ;
+            return;
         }
-        const data={
-            userName:user?.fullName,
-            userEmail:user?.primaryEmailAddress.emailAddress,
-            time:selectedTime,
-            date:moment(selectedDate).format('DD-MMM-yyyy'),
-            businessId:businessId
-        }
-
     
-        GlobalApi.createBooking(data).then(resp=>{
-            console.log("Resp",resp);
-            Alert.alert('Te has inscrito a este curso exitosamente');
-            hideModal();
-        })
+        const data = {
+            userName: user?.fullName,
+            userEmail: user?.primaryEmailAddress.emailAddress,
+            time: selectedTime,
+            date: moment(selectedDate).format('DD-MMM-yyyy'),
+            businessId: businessId,
+
+            
+        }
+    
+        GlobalApi.createBooking(data)
+            .then(resp => {
+                console.log("Resp", resp);
+                Alert.alert('Te has inscrito a este curso exitosamente');
+                hideModal();
+            })
+            .catch(error => {
+                console.error("Error al crear la reserva:", error);
+                // Aquí puedes manejar el error de alguna manera, como mostrando un mensaje al usuario
+                Alert.alert('Ocurrió un error al intentar crear la reserva. Por favor, inténtalo de nuevo más tarde.');
+            });
     }
+    
   return (
     <ScrollView>
     <KeyboardAvoidingView style={{padding:20,paddingTop:60}}>
@@ -127,7 +134,7 @@ export default function BookingModal({businessId,hideModal}) {
       onPress={()=>createNewBooking()}>
         <Text style={styles.confirmBtn}
         
-        >Confirmar e Inscribete</Text>
+        >Inscribirme</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
     </ScrollView>

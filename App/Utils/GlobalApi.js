@@ -91,7 +91,7 @@ const createBooking=async(data)=>{
     createBooking(
       data: {
         bookingStatus: Booked, 
-        businessList: {
+        businesslist: {
           connect: {id: "`+data.businessId+`"}}, 
         date: "`+data.date+`", 
         time: "`+data.time+`", 
