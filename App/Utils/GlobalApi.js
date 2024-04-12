@@ -69,11 +69,11 @@ const getBusinessListByCategory=async(category)=>{
       name
       email
       rating
-      contactPerson
       category {
         name
       }
       address
+      contactPerson
       about
       images {
         url
@@ -92,11 +92,13 @@ const createBooking=async(data)=>{
       data: {
         bookingStatus: Booked, 
         businesslist: {
-          connect: {id: "`+data.businessId+`"}}, 
+          connect: {id: "`+data.businessId+`"},
+        }, 
         date: "`+data.date+`", 
         time: "`+data.time+`", 
         userEmail: "`+data.userEmail+`", 
-        userName: "`+data.userName+`"}
+        userName: "`+data.userName+`"},
+
     ) {
       id
     }
@@ -110,6 +112,7 @@ const createBooking=async(data)=>{
 }
 
 const getUserBookings=async(userEmail)=>{
+  console.log(userEmail)
   const query=gql`
   query GetUserBookings {
     bookings(orderBy: updatedAt_DESC, 
@@ -120,14 +123,16 @@ const getUserBookings=async(userEmail)=>{
       bookingStatus
       date
       id
-      businessList {
+      businesslist {
         id
+        contactPerson
+
         images {
           url
         }
         name
         address
-        contactPerson
+        
         email
         about
         category {
@@ -139,7 +144,10 @@ const getUserBookings=async(userEmail)=>{
   `
 
   const result= await request(MASTER_URL, query);
+  console.log('hola bebas \n', result);
   return result;
+
+
 }
 
 export default{

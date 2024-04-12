@@ -17,13 +17,21 @@ export default function BookingScreen() {
   /**
    * Get User Bookings
    */
-  const getUserBookings=()=>{
-    setLoading(true)
-    GlobalApi.getUserBookings(user.primaryEmailAddress.emailAddress).then(resp=>{
-      setBookingList(resp.bookings);
-      setLoading(false)
-    })
-  }
+  const getUserBookings = () => {
+    setLoading(true);
+    GlobalApi.getUserBookings(user.primaryEmailAddress.emailAddress)
+        .then(resp => {
+            setBookingList(resp?.bookings);
+            setLoading(false);
+            console.log(resp?.bookings);
+        })
+        .catch(error => {
+            console.error("Error al obtener las reservas:", error);
+            setLoading(false);
+
+        });
+}
+
   return (
     <View style={{padding:20,paddingTop:60}}>
       <Text style={{fontFamily:'outfit-medium',
@@ -36,7 +44,7 @@ export default function BookingScreen() {
       refreshing={loading}
       renderItem={({item,index})=>(
         <BusinessListItem 
-        business={item?.businessList}
+        business={item?.businesslist}
         booking={item}
         
         />
