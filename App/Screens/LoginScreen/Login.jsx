@@ -4,6 +4,7 @@ import Colors from '../../Utils/Colors'
 import * as WebBrowser from "expo-web-browser";
 import { useOAuth } from "@clerk/clerk-expo";
 import { useWarmUpBrowser } from '../../hooks/warmUpBrowser';
+import { Ionicons } from '@expo/vector-icons'; 
 WebBrowser.maybeCompleteAuthSession();
 export default function Login() {
     useWarmUpBrowser();
@@ -40,22 +41,28 @@ export default function Login() {
             textAlign:'center',marginTop:20}}>La aplicacion para ver los cursos a los que te puedes inscribir en la UTEZ</Text>
         
             <TouchableOpacity style={styles.button} 
-            onPress={onPress}>
+            /*onPress={agregarLogin}*/>
                 <Text style={{textAlign:'center',
                 fontSize:17,
-                color:Colors.PRIMARY}}>Iniciar Sesión</Text>
+                fontWeight:'bold',
+                color:Colors.BLUE_UTEZ}}>Iniciar sesión </Text>
+                <Ionicons name={'log-in'} size={25}/>
             </TouchableOpacity>
+            
 
             <TouchableOpacity style={styles.button} 
             onPress={onPress}>
                 <Text style={{textAlign:'center',
                 fontSize:17,
-                color:Colors.PRIMARY}}>Iniciar Sesión con Google</Text>
+                fontWeight:'bold',
+                color:Colors.BLUE_UTEZ}}>Continuar con Google </Text>
+                <Ionicons name={'ios-logo-google'} size={22} style={{marginLeft:4}}/> 
             </TouchableOpacity>
         </View>
     </View>
   )
 }
+//
 
 const styles = StyleSheet.create({
     loginImage:{
@@ -75,9 +82,16 @@ const styles = StyleSheet.create({
         
     },
     button:{
-        padding:15,
+        padding:20,
         backgroundColor:Colors.WHITE,
         borderRadius:99,
-        marginTop:40
+        marginTop:30,
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    googleIcon:{
+        width:'100px',
+        height:'100px'
     }
 })
