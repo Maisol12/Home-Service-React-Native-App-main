@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Modal, Linking, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Modal, Linking, Image, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "../../Utils/Colors";
 import BusinessPhotos from "./BusinessPhotos";
@@ -22,10 +22,18 @@ export default function BusinessDetailsBooked() {
       setIsCompleted(booking.bookingStatus === "Completed");
     }
   }, [booking]);
-  
 
   const onMessageBtnClick = () => {
     Linking.openURL(`mailto:${business?.email}?subject=Hola, estoy buscando ayuda acerca del curso,`);
+  }
+
+  const descargarCertificado = () => {
+    if (isCompleted) {
+      // Lógica para enviar el certificado
+      Alert.alert("Certificado enviado", "Revise su correo electronico.");
+    } else {
+      Alert.alert("Curso no completado", "No puedes enviar el certificado porque el curso aún no ha sido completado.");
+    }
   }
 
   return (
@@ -145,9 +153,24 @@ export default function BusinessDetailsBooked() {
               Mensaje
             </Text>
           </TouchableOpacity>
-        </View>
 
-        
+          <TouchableOpacity
+            style={[styles.bookingBtn, !isCompleted && { backgroundColor: Colors.GRAY, borderColor: Colors.GRAY }]}
+            onPress={descargarCertificado}
+            disabled={!isCompleted}
+          >
+            <Text
+              style={{
+                textAlign: "center",
+                fontFamily: "outfit-medium",
+                color: Colors.WHITE,
+                fontSize: 18,
+              }}
+            >
+              Enviar certificado
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     )
   );
