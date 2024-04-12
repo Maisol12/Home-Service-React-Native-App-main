@@ -11,7 +11,7 @@ export default function BookingNavigation() {
     <Stack.Navigator screenOptions={{
         headerShown:false
        }}>
-            <Stack.Screen name='booking' component={BookingScreen} />
+            <Stack.Screen name='booking-screen' component={BookingScreen} />
           
             <Stack.Screen name='business-detail' component={BusinessDetailsScreen} />
        </Stack.Navigator>
