@@ -4,6 +4,7 @@ import Colors from '../../Utils/Colors'
 import { AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native'
+import Rating from '../../Components/Rating';
 
 export default function BusinessListItemSmall({business}) {
   const navigtaion=useNavigation()
@@ -17,6 +18,7 @@ export default function BusinessListItemSmall({business}) {
       <View style={styles.infoContainer}>
         <Text style={{fontSize:17,
         fontFamily:'outfit-medium'}}>{business?.name}</Text>
+        <Rating rating={business?.rating}/>
         <Text style={{fontSize:13,fontFamily:'outfit',
     color:Colors.GRAY}}>{business?.contactPerson}</Text>
         <Text style={{
@@ -29,6 +31,7 @@ export default function BusinessListItemSmall({business}) {
             alignSelf:'flex-start',
             paddingHorizontal:7
         }}>{business?.category.name}</Text>
+        
 
 
       </View>

@@ -41,7 +41,7 @@ export default function Login() {
             onPress={onPress}>
                 <Text style={{textAlign:'center',
                 fontSize:17,
-                color:Colors.PRIMARY}}>Iniciar Sesion</Text>
+                color:Colors.PRIMARY}}>Iniciar Sesión</Text>
             </TouchableOpacity>
         </View>
     </View>

@@ -102,7 +102,7 @@ export default function BookingModal({businessId,hideModal}) {
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({item,index})=>(
-            <TouchableOpacity style={{marginRight:10}}
+            <TouchableOpacity style={{marginRight:5}}
             onPress={()=>setSelectedTime(item.time)}>
                 <Text style={[selectedTime==item.time?
                  styles.selectedTime:styles.unSelectedTime]}>
@@ -142,7 +142,6 @@ const styles = StyleSheet.create({
     },
     selectedTime:{
         padding:10,
-        borderWidth:1,
         borderColor:Colors.PRIMARY,
         borderRadius:99,
         paddingHorizontal:18,
@@ -151,7 +150,6 @@ const styles = StyleSheet.create({
     },
     unSelectedTime:{
         padding:10,
-        borderWidth:1,
         borderColor:Colors.PRIMARY,
         borderRadius:99,
         paddingHorizontal:18,

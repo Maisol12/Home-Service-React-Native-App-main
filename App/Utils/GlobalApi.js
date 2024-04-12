@@ -44,6 +44,7 @@ const getBusinessList=async()=>{
       id
       name
       email
+      rating
       contactPerson
       category {
         name
@@ -67,6 +68,7 @@ const getBusinessListByCategory=async(category)=>{
       id
       name
       email
+      rating
       contactPerson
       category {
         name

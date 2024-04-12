@@ -8,7 +8,7 @@ export default function Heading({text,isViewAll=false}) {
        <Text style={styles.heading}>
         {text}
        </Text>
-      {isViewAll&& <Text style={{color:Colors.PRIMARY}}>View All</Text>}
+      {isViewAll&& <Text style={{color:Colors.PRIMARY}}>Ver todo</Text>}
     </View>
   )
 }
